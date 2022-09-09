@@ -1,0 +1,331 @@
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/kml/2.2 https://developers.google.com/kml/schema/kml22gx.xsd">
+	<Document>
+		<Placemark>
+			<description>51-A</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABTdJREFUeNq8WG1MllUYvl4Qe0MZJIIGDXMlU0GnC1i0AparNZ1tkpEy1+bAFqwffeePtD/R+tjKzZrax79qfTgtF1uzNUdb5UpWmeX8YEmppYXhR4CIvF3XOed5Xz6f53kBvbd7z3nOOfd9X8855/44TwRJUCwWm83HMnIFuYg8izzFDf9Hbif/Qv6K3ByJRH7DRBGNR8jLyS2x5KnFyUaC7EQCQCziYwv51kQn+fA/wIHTwInzQGeP7c+KAvkZQHEuUDh9qOa95Aau0I9JAyGIx/h4iZxmOk5dAN4/AHx+FOjo8v+87HTgnpuB2mJgxlSv9xL5GYJ5LRQQAkh1q7DOdHT3AVv3AR8RxKX+5PY1LQWoIZiHS4BrJ3m9b7nVuTwqELeXb5LrTUfbGeCpL4Dfz47voBVkAq/cBdw0zet5m/wQwcS8jpQhIk/GQfzwF1C3a/wgRNIhXdJpqd7ZGr4iXI0yPr4hp+IIV2IdBS/0YkJp6mRuzL3AHLMy2prbuCrfxVeEIPTcakB08Uw9vXviQYikU7plQ7Zo09mOb00NebFpbfke+OMcrhhJt2xYWuxs260hKo2U4CTjwooPuWghvENuWcnAOivTvrfzHLS0WzcPolR+/84HgLwMve3j9pQqas53YRl49VvGip/9lUzmij7K+LaSYilDvL+fTrD9V2AT41fvZX89tQuAx8u9tyJtzdK4EgWrIBBvMNXUFA0HYTY6Ysc0R3P9SLb64967NMUlMOBQB3Cm21+4oZS7OjN46TVHc/1ItmTTUkWKy6LAwb/9BTPoequKwx9KzZWMHyVsmq3JM83jAZ5SdoMN2cmEd8n4UcJmnjRH4z7uR/kZybtqkEzCZjTxielp/kI2CCVHQTIDbAqITSaZUX+hwx3JAwmSSdg8KyBtpjk7y19IhVAyCVBzJeNHCZttAtJqmotm+tdr8vmXvx7o++ObG3E2LbUKyJ54qTc/19/A3uPA86yL+3xSgMY0R3P9SLay4luzR0CaVYeZ1xVzg7921yHgwZ0UPTY4jKutPo1pThAlbHWbit8lPVVMdeZrqpn0lPzCkML49c5F/zwfnF/iUYMyO5j0JhmnfYdJr95z3xe1qGbgifLwB1KG2zsthwUhkg0Los/ZtvUIESnbbTaTKm8ElhdeuXpEumXD0mZne1CpyDsAdO+YYyr32u0TXyCpiH7vPq+iPyK/IZCuQcWz66g1y6WJTUu85ZsYki7ptCAUcld7IIZV8RzgBQYbrHvlMJWXTBwQ6Zo33Xt7lrZagy5YAsfLDO4018uGz1jMnRwfiLJ8WyxZa1+S7yaQ/sArJ8FQEvvJ03Cal/xVPC/nLo4NhPLJByuBHB1BKPksJIhhXzbiIeDEEyauiHKnABsrx74aGyo8EKK6kUCMCsSB+YSPbealiu5WPS95EJKpirvqNur8dKy/JdJdUpyLHrr0mh3Asc5wIJRZ360GrjFecpB8C4GMWhT7+qdzr9WKoYhS4QtLgqtzL/TLVS2IXueqvpV5YKBwP1fWm5fCbKCxNBjII2V2rqX11PFTkEjYiLWJvNu01iwEyn2KYo3p8uRuL042kCJhzx3Pyww+dA3MMX+M5NL/9gyedJ1z1WzjJborLOBqnAqjP3QMdwrXxn9Nbawa/BlqP1flgRCtDQsiKSAOjIqo183LHQXA/UWJQbVvLxiYVZtxJYlbFCXvNz8vL/bFYjUfW1bbksaiuBpEQ8XkHmP2aIdlS+orxtUkGmwc4QdvI642uT/STeQLjpvC/GEejf4XYABjPiWbTusdHAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6843° / lat : 44.3665°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.6843346466829185,44.36652943931202</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>52-A</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABTdJREFUeNq8WG1MllUYvl4Qe0MZJIIGDXMlU0GnC1i0AparNZ1tkpEy1+bAFqwffeePtD/R+tjKzZrax79qfTgtF1uzNUdb5UpWmeX8YEmppYXhR4CIvF3XOed5Xz6f53kBvbd7z3nOOfd9X8855/44TwRJUCwWm83HMnIFuYg8izzFDf9Hbif/Qv6K3ByJRH7DRBGNR8jLyS2x5KnFyUaC7EQCQCziYwv51kQn+fA/wIHTwInzQGeP7c+KAvkZQHEuUDh9qOa95Aau0I9JAyGIx/h4iZxmOk5dAN4/AHx+FOjo8v+87HTgnpuB2mJgxlSv9xL5GYJ5LRQQAkh1q7DOdHT3AVv3AR8RxKX+5PY1LQWoIZiHS4BrJ3m9b7nVuTwqELeXb5LrTUfbGeCpL4Dfz47voBVkAq/cBdw0zet5m/wQwcS8jpQhIk/GQfzwF1C3a/wgRNIhXdJpqd7ZGr4iXI0yPr4hp+IIV2IdBS/0YkJp6mRuzL3AHLMy2prbuCrfxVeEIPTcakB08Uw9vXviQYikU7plQ7Zo09mOb00NebFpbfke+OMcrhhJt2xYWuxs260hKo2U4CTjwooPuWghvENuWcnAOivTvrfzHLS0WzcPolR+/84HgLwMve3j9pQqas53YRl49VvGip/9lUzmij7K+LaSYilDvL+fTrD9V2AT41fvZX89tQuAx8u9tyJtzdK4EgWrIBBvMNXUFA0HYTY6Ysc0R3P9SLb64967NMUlMOBQB3Cm21+4oZS7OjN46TVHc/1ItmTTUkWKy6LAwb/9BTPoequKwx9KzZWMHyVsmq3JM83jAZ5SdoMN2cmEd8n4UcJmnjRH4z7uR/kZybtqkEzCZjTxielp/kI2CCVHQTIDbAqITSaZUX+hwx3JAwmSSdg8KyBtpjk7y19IhVAyCVBzJeNHCZttAtJqmotm+tdr8vmXvx7o++ObG3E2LbUKyJ54qTc/19/A3uPA86yL+3xSgMY0R3P9SLay4luzR0CaVYeZ1xVzg7921yHgwZ0UPTY4jKutPo1pThAlbHWbit8lPVVMdeZrqpn0lPzCkML49c5F/zwfnF/iUYMyO5j0JhmnfYdJr95z3xe1qGbgifLwB1KG2zsthwUhkg0Los/ZtvUIESnbbTaTKm8ElhdeuXpEumXD0mZne1CpyDsAdO+YYyr32u0TXyCpiH7vPq+iPyK/IZCuQcWz66g1y6WJTUu85ZsYki7ptCAUcld7IIZV8RzgBQYbrHvlMJWXTBwQ6Zo33Xt7lrZagy5YAsfLDO4018uGz1jMnRwfiLJ8WyxZa1+S7yaQ/sArJ8FQEvvJ03Cal/xVPC/nLo4NhPLJByuBHB1BKPksJIhhXzbiIeDEEyauiHKnABsrx74aGyo8EKK6kUCMCsSB+YSPbealiu5WPS95EJKpirvqNur8dKy/JdJdUpyLHrr0mh3Asc5wIJRZ360GrjFecpB8C4GMWhT7+qdzr9WKoYhS4QtLgqtzL/TLVS2IXueqvpV5YKBwP1fWm5fCbKCxNBjII2V2rqX11PFTkEjYiLWJvNu01iwEyn2KYo3p8uRuL042kCJhzx3Pyww+dA3MMX+M5NL/9gyedJ1z1WzjJborLOBqnAqjP3QMdwrXxn9Nbawa/BlqP1flgRCtDQsiKSAOjIqo183LHQXA/UWJQbVvLxiYVZtxJYlbFCXvNz8vL/bFYjUfW1bbksaiuBpEQ8XkHmP2aIdlS+orxtUkGmwc4QdvI642uT/STeQLjpvC/GEejf4XYABjPiWbTusdHAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6841° / lat : 44.3658°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.6841307198188105,44.365805544366964</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>48-B</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,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</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6833° / lat : 44.3671°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.683336108244875,44.3671377052311</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>50-B</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,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</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6833° / lat : 44.3669°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.6833431402057055,44.366891383429845</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>47-B</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,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</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6827° / lat : 44.3672°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.682661040005071,44.3672281905306</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>49-B</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,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</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6836° / lat : 44.3675°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.683617386678127,44.36745943010544</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>46-C</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABMJJREFUeNq8WElsHEUU/dPexrvlFY1t2ZY3zOSQiEWIQw4cOARxRQoHRBRAIjcOQA5wzAE4gBQkEuCcMxwsIRCKwgEhiCVAGls2M0KWjQ3GWB7v+/Be8ysqT2a6uuOOn/RVS9ev/7qq/v/VnZAIKBQKAyieh5yHpCF9kHp9vAmZhWQg30PGE4nEHxIXYDwBeQFypxAdd1Q34bKTcJA4i+JTyNN2/9bWlmxubsru7q4cHBz4fZWVlVJTUyP19fVSV1dXPNWPkDewQr9EJgISb6J4H1LF9t7eniwtLcnKyors7+8Hvl1VVZW0trZKZ2enVFdXm24qvQMyH4UiAgIVugqvsX10dCQLCws+CTyLtK0w6pNJpVLieZ7p/lxX57AsEd3LzyCvsr29vS25XM7fgpOAWzY4OCi1tbWm6wvI6yBTKEfkLRQfsL6xsSHZbFYODw9jOfQVFRUyNDQkDQ0NputtEPnwPiIg8RSKH6jDlZieno6NhE1mdHTUrAwnfwZkfmLDUxIsb3AsjXM74ibhWz4+N8/iDbUt5gS9CDnHCg/mSc9EEDg3bSjOqe3/twasfkbxBAdlMplQ3kG3bGlp8Q+iMbC6uuq7eRhvSqfTRvcu2k8yaj6mYVnm5uZ8Nw0C3bCnp0fa29v9CYsOuywvL8v8/Lzv9kGgW/f29ppmmltzwbQYrFxvMjw8LB0dHfeRMM/5jGNKPbdRZOuCpwnMD9smXJdDd3e37X5lwTEcGwTaok3FeU+zqN1Z1vW4nGHBsdQJgmXT35oUazs7O4FKTU1NzuUu3ibqBMGymSKRpMkpLi+JCpeOZTPp2d4QUik0XDq2Tdby5j4RBIb9qHDpWDbzJJLz1yaZDFRiEnSdo+L9p04QLJs5EpkwLucCA15YhBlr2ZwgkdtmmXjNC8La2prMzs4GpgA+4xiODQJtWVtzmyGePvYXpJbhmZO4wDTOW1dzc/M9lyaBfD7vJ7Qw56mvr89PEzxKkEcqMdEaJrmFxuW2tjZZXFx0Ji5zc+OpNy5KnbCeRR3aUtwiB5N9h1BMcYeYQWnkYYLXRmZuRnrIGIhkPY2CWRTXWecAi23s4NxKgriuto9dFfkxwu+OYS7x5ORk7BckuuvY2JgJZL9DzoLIln1DE+14icvFgQMDA5FyS5jcwzmVBL9xLhoSx4jo4Lso3jPuRc+IC5zL+gJ8F7YmXB9YJPct5Fm2Z2ZmZH19/UQkGhsbZWRkxDS/gzwHIsdczCuxhBzwMi9RbHM5XXnIlU84h+Jfzl1MoiQRJfMn44r5jmXweVBQl3MoLmPuhZKZOOBwfYnipnFpjYKRwPur5ao3MedXD/pbok6T4qN06ampqdAZuMhVGSwfB5Gysd9zuBzd6yIjeBSXLnLVPXXVwATkhZiUQe4q63Q/1+3c3PYtV72KOX516Xght/tjyDesdHV1BV6K+YxjFF+rrsRCRP9j0KX/Ybu/v7+kS7OPzxQc+4r9DySOFSGZv1FcMi5tGbwH9lmuekl1JFYiSmYcxSes81Jkf3Cxzj4rq44/1LsEXDoJ+Y3/LuHShUwm4wvrCj5LymkAhs5AdmgVn42+KNh3Rk4TMHilxA/eK3La0D/S1yAbKtfC/GEuh/8EGAAUeWMCLTpNtAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.682° / lat : 44.3676°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.6820000356869285,44.367630345726184</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>45-C</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABMJJREFUeNq8WElsHEUU/dPexrvlFY1t2ZY3zOSQiEWIQw4cOARxRQoHRBRAIjcOQA5wzAE4gBQkEuCcMxwsIRCKwgEhiCVAGls2M0KWjQ3GWB7v+/Be8ysqT2a6uuOOn/RVS9ev/7qq/v/VnZAIKBQKAyieh5yHpCF9kHp9vAmZhWQg30PGE4nEHxIXYDwBeQFypxAdd1Q34bKTcJA4i+JTyNN2/9bWlmxubsru7q4cHBz4fZWVlVJTUyP19fVSV1dXPNWPkDewQr9EJgISb6J4H1LF9t7eniwtLcnKyors7+8Hvl1VVZW0trZKZ2enVFdXm24qvQMyH4UiAgIVugqvsX10dCQLCws+CTyLtK0w6pNJpVLieZ7p/lxX57AsEd3LzyCvsr29vS25XM7fgpOAWzY4OCi1tbWm6wvI6yBTKEfkLRQfsL6xsSHZbFYODw9jOfQVFRUyNDQkDQ0NputtEPnwPiIg8RSKH6jDlZieno6NhE1mdHTUrAwnfwZkfmLDUxIsb3AsjXM74ibhWz4+N8/iDbUt5gS9CDnHCg/mSc9EEDg3bSjOqe3/twasfkbxBAdlMplQ3kG3bGlp8Q+iMbC6uuq7eRhvSqfTRvcu2k8yaj6mYVnm5uZ8Nw0C3bCnp0fa29v9CYsOuywvL8v8/Lzv9kGgW/f29ppmmltzwbQYrFxvMjw8LB0dHfeRMM/5jGNKPbdRZOuCpwnMD9smXJdDd3e37X5lwTEcGwTaok3FeU+zqN1Z1vW4nGHBsdQJgmXT35oUazs7O4FKTU1NzuUu3ibqBMGymSKRpMkpLi+JCpeOZTPp2d4QUik0XDq2Tdby5j4RBIb9qHDpWDbzJJLz1yaZDFRiEnSdo+L9p04QLJs5EpkwLucCA15YhBlr2ZwgkdtmmXjNC8La2prMzs4GpgA+4xiODQJtWVtzmyGePvYXpJbhmZO4wDTOW1dzc/M9lyaBfD7vJ7Qw56mvr89PEzxKkEcqMdEaJrmFxuW2tjZZXFx0Ji5zc+OpNy5KnbCeRR3aUtwiB5N9h1BMcYeYQWnkYYLXRmZuRnrIGIhkPY2CWRTXWecAi23s4NxKgriuto9dFfkxwu+OYS7x5ORk7BckuuvY2JgJZL9DzoLIln1DE+14icvFgQMDA5FyS5jcwzmVBL9xLhoSx4jo4Lso3jPuRc+IC5zL+gJ8F7YmXB9YJPct5Fm2Z2ZmZH19/UQkGhsbZWRkxDS/gzwHIsdczCuxhBzwMi9RbHM5XXnIlU84h+Jfzl1MoiQRJfMn44r5jmXweVBQl3MoLmPuhZKZOOBwfYnipnFpjYKRwPur5ao3MedXD/pbok6T4qN06ampqdAZuMhVGSwfB5Gysd9zuBzd6yIjeBSXLnLVPXXVwATkhZiUQe4q63Q/1+3c3PYtV72KOX516Xght/tjyDesdHV1BV6K+YxjFF+rrsRCRP9j0KX/Ybu/v7+kS7OPzxQc+4r9DySOFSGZv1FcMi5tGbwH9lmuekl1JFYiSmYcxSes81Jkf3Cxzj4rq44/1LsEXDoJ+Y3/LuHShUwm4wvrCj5LymkAhs5AdmgVn42+KNh3Rk4TMHilxA/eK3La0D/S1yAbKtfC/GEuh/8EGAAUeWMCLTpNtAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6822° / lat : 44.3671°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.682182866668542,44.36710251646576</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>44-C</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABMJJREFUeNq8WElsHEUU/dPexrvlFY1t2ZY3zOSQiEWIQw4cOARxRQoHRBRAIjcOQA5wzAE4gBQkEuCcMxwsIRCKwgEhiCVAGls2M0KWjQ3GWB7v+/Be8ysqT2a6uuOOn/RVS9ev/7qq/v/VnZAIKBQKAyieh5yHpCF9kHp9vAmZhWQg30PGE4nEHxIXYDwBeQFypxAdd1Q34bKTcJA4i+JTyNN2/9bWlmxubsru7q4cHBz4fZWVlVJTUyP19fVSV1dXPNWPkDewQr9EJgISb6J4H1LF9t7eniwtLcnKyors7+8Hvl1VVZW0trZKZ2enVFdXm24qvQMyH4UiAgIVugqvsX10dCQLCws+CTyLtK0w6pNJpVLieZ7p/lxX57AsEd3LzyCvsr29vS25XM7fgpOAWzY4OCi1tbWm6wvI6yBTKEfkLRQfsL6xsSHZbFYODw9jOfQVFRUyNDQkDQ0NputtEPnwPiIg8RSKH6jDlZieno6NhE1mdHTUrAwnfwZkfmLDUxIsb3AsjXM74ibhWz4+N8/iDbUt5gS9CDnHCg/mSc9EEDg3bSjOqe3/twasfkbxBAdlMplQ3kG3bGlp8Q+iMbC6uuq7eRhvSqfTRvcu2k8yaj6mYVnm5uZ8Nw0C3bCnp0fa29v9CYsOuywvL8v8/Lzv9kGgW/f29ppmmltzwbQYrFxvMjw8LB0dHfeRMM/5jGNKPbdRZOuCpwnMD9smXJdDd3e37X5lwTEcGwTaok3FeU+zqN1Z1vW4nGHBsdQJgmXT35oUazs7O4FKTU1NzuUu3ibqBMGymSKRpMkpLi+JCpeOZTPp2d4QUik0XDq2Tdby5j4RBIb9qHDpWDbzJJLz1yaZDFRiEnSdo+L9p04QLJs5EpkwLucCA15YhBlr2ZwgkdtmmXjNC8La2prMzs4GpgA+4xiODQJtWVtzmyGePvYXpJbhmZO4wDTOW1dzc/M9lyaBfD7vJ7Qw56mvr89PEzxKkEcqMdEaJrmFxuW2tjZZXFx0Ji5zc+OpNy5KnbCeRR3aUtwiB5N9h1BMcYeYQWnkYYLXRmZuRnrIGIhkPY2CWRTXWecAi23s4NxKgriuto9dFfkxwu+OYS7x5ORk7BckuuvY2JgJZL9DzoLIln1DE+14icvFgQMDA5FyS5jcwzmVBL9xLhoSx4jo4Lso3jPuRc+IC5zL+gJ8F7YmXB9YJPct5Fm2Z2ZmZH19/UQkGhsbZWRkxDS/gzwHIsdczCuxhBzwMi9RbHM5XXnIlU84h+Jfzl1MoiQRJfMn44r5jmXweVBQl3MoLmPuhZKZOOBwfYnipnFpjYKRwPur5ao3MedXD/pbok6T4qN06ampqdAZuMhVGSwfB5Gysd9zuBzd6yIjeBSXLnLVPXXVwATkhZiUQe4q63Q/1+3c3PYtV72KOX516Xght/tjyDesdHV1BV6K+YxjFF+rrsRCRP9j0KX/Ybu/v7+kS7OPzxQc+4r9DySOFSGZv1FcMi5tGbwH9lmuekl1JFYiSmYcxSes81Jkf3Cxzj4rq44/1LsEXDoJ+Y3/LuHShUwm4wvrCj5LymkAhs5AdmgVn42+KNh3Rk4TMHilxA/eK3La0D/S1yAbKtfC/GEuh/8EGAAUeWMCLTpNtAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6817° / lat : 44.3663°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.681662501567026,44.36627808791434</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>43-C</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABMJJREFUeNq8WElsHEUU/dPexrvlFY1t2ZY3zOSQiEWIQw4cOARxRQoHRBRAIjcOQA5wzAE4gBQkEuCcMxwsIRCKwgEhiCVAGls2M0KWjQ3GWB7v+/Be8ysqT2a6uuOOn/RVS9ev/7qq/v/VnZAIKBQKAyieh5yHpCF9kHp9vAmZhWQg30PGE4nEHxIXYDwBeQFypxAdd1Q34bKTcJA4i+JTyNN2/9bWlmxubsru7q4cHBz4fZWVlVJTUyP19fVSV1dXPNWPkDewQr9EJgISb6J4H1LF9t7eniwtLcnKyors7+8Hvl1VVZW0trZKZ2enVFdXm24qvQMyH4UiAgIVugqvsX10dCQLCws+CTyLtK0w6pNJpVLieZ7p/lxX57AsEd3LzyCvsr29vS25XM7fgpOAWzY4OCi1tbWm6wvI6yBTKEfkLRQfsL6xsSHZbFYODw9jOfQVFRUyNDQkDQ0NputtEPnwPiIg8RSKH6jDlZieno6NhE1mdHTUrAwnfwZkfmLDUxIsb3AsjXM74ibhWz4+N8/iDbUt5gS9CDnHCg/mSc9EEDg3bSjOqe3/twasfkbxBAdlMplQ3kG3bGlp8Q+iMbC6uuq7eRhvSqfTRvcu2k8yaj6mYVnm5uZ8Nw0C3bCnp0fa29v9CYsOuywvL8v8/Lzv9kGgW/f29ppmmltzwbQYrFxvMjw8LB0dHfeRMM/5jGNKPbdRZOuCpwnMD9smXJdDd3e37X5lwTEcGwTaok3FeU+zqN1Z1vW4nGHBsdQJgmXT35oUazs7O4FKTU1NzuUu3ibqBMGymSKRpMkpLi+JCpeOZTPp2d4QUik0XDq2Tdby5j4RBIb9qHDpWDbzJJLz1yaZDFRiEnSdo+L9p04QLJs5EpkwLucCA15YhBlr2ZwgkdtmmXjNC8La2prMzs4GpgA+4xiODQJtWVtzmyGePvYXpJbhmZO4wDTOW1dzc/M9lyaBfD7vJ7Qw56mvr89PEzxKkEcqMdEaJrmFxuW2tjZZXFx0Ji5zc+OpNy5KnbCeRR3aUtwiB5N9h1BMcYeYQWnkYYLXRmZuRnrIGIhkPY2CWRTXWecAi23s4NxKgriuto9dFfkxwu+OYS7x5ORk7BckuuvY2JgJZL9DzoLIln1DE+14icvFgQMDA5FyS5jcwzmVBL9xLhoSx4jo4Lso3jPuRc+IC5zL+gJ8F7YmXB9YJPct5Fm2Z2ZmZH19/UQkGhsbZWRkxDS/gzwHIsdczCuxhBzwMi9RbHM5XXnIlU84h+Jfzl1MoiQRJfMn44r5jmXweVBQl3MoLmPuhZKZOOBwfYnipnFpjYKRwPur5ao3MedXD/pbok6T4qN06ampqdAZuMhVGSwfB5Gysd9zuBzd6yIjeBSXLnLVPXXVwATkhZiUQe4q63Q/1+3c3PYtV72KOX516Xght/tjyDesdHV1BV6K+YxjFF+rrsRCRP9j0KX/Ybu/v7+kS7OPzxQc+4r9DySOFSGZv1FcMi5tGbwH9lmuekl1JFYiSmYcxSes81Jkf3Cxzj4rq44/1LsEXDoJ+Y3/LuHShUwm4wvrCj5LymkAhs5AdmgVn42+KNh3Rk4TMHilxA/eK3La0D/S1yAbKtfC/GEuh/8EGAAUeWMCLTpNtAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6823° / lat : 44.3654°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.682260218237687,44.36541845798263</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>53-A</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABTdJREFUeNq8WG1MllUYvl4Qe0MZJIIGDXMlU0GnC1i0AparNZ1tkpEy1+bAFqwffeePtD/R+tjKzZrax79qfTgtF1uzNUdb5UpWmeX8YEmppYXhR4CIvF3XOed5Xz6f53kBvbd7z3nOOfd9X8855/44TwRJUCwWm83HMnIFuYg8izzFDf9Hbif/Qv6K3ByJRH7DRBGNR8jLyS2x5KnFyUaC7EQCQCziYwv51kQn+fA/wIHTwInzQGeP7c+KAvkZQHEuUDh9qOa95Aau0I9JAyGIx/h4iZxmOk5dAN4/AHx+FOjo8v+87HTgnpuB2mJgxlSv9xL5GYJ5LRQQAkh1q7DOdHT3AVv3AR8RxKX+5PY1LQWoIZiHS4BrJ3m9b7nVuTwqELeXb5LrTUfbGeCpL4Dfz47voBVkAq/cBdw0zet5m/wQwcS8jpQhIk/GQfzwF1C3a/wgRNIhXdJpqd7ZGr4iXI0yPr4hp+IIV2IdBS/0YkJp6mRuzL3AHLMy2prbuCrfxVeEIPTcakB08Uw9vXviQYikU7plQ7Zo09mOb00NebFpbfke+OMcrhhJt2xYWuxs260hKo2U4CTjwooPuWghvENuWcnAOivTvrfzHLS0WzcPolR+/84HgLwMve3j9pQqas53YRl49VvGip/9lUzmij7K+LaSYilDvL+fTrD9V2AT41fvZX89tQuAx8u9tyJtzdK4EgWrIBBvMNXUFA0HYTY6Ysc0R3P9SLb64967NMUlMOBQB3Cm21+4oZS7OjN46TVHc/1ItmTTUkWKy6LAwb/9BTPoequKwx9KzZWMHyVsmq3JM83jAZ5SdoMN2cmEd8n4UcJmnjRH4z7uR/kZybtqkEzCZjTxielp/kI2CCVHQTIDbAqITSaZUX+hwx3JAwmSSdg8KyBtpjk7y19IhVAyCVBzJeNHCZttAtJqmotm+tdr8vmXvx7o++ObG3E2LbUKyJ54qTc/19/A3uPA86yL+3xSgMY0R3P9SLay4luzR0CaVYeZ1xVzg7921yHgwZ0UPTY4jKutPo1pThAlbHWbit8lPVVMdeZrqpn0lPzCkML49c5F/zwfnF/iUYMyO5j0JhmnfYdJr95z3xe1qGbgifLwB1KG2zsthwUhkg0Los/ZtvUIESnbbTaTKm8ElhdeuXpEumXD0mZne1CpyDsAdO+YYyr32u0TXyCpiH7vPq+iPyK/IZCuQcWz66g1y6WJTUu85ZsYki7ptCAUcld7IIZV8RzgBQYbrHvlMJWXTBwQ6Zo33Xt7lrZagy5YAsfLDO4018uGz1jMnRwfiLJ8WyxZa1+S7yaQ/sArJ8FQEvvJ03Cal/xVPC/nLo4NhPLJByuBHB1BKPksJIhhXzbiIeDEEyauiHKnABsrx74aGyo8EKK6kUCMCsSB+YSPbealiu5WPS95EJKpirvqNur8dKy/JdJdUpyLHrr0mh3Asc5wIJRZ360GrjFecpB8C4GMWhT7+qdzr9WKoYhS4QtLgqtzL/TLVS2IXueqvpV5YKBwP1fWm5fCbKCxNBjII2V2rqX11PFTkEjYiLWJvNu01iwEyn2KYo3p8uRuL042kCJhzx3Pyww+dA3MMX+M5NL/9gyedJ1z1WzjJborLOBqnAqjP3QMdwrXxn9Nbawa/BlqP1flgRCtDQsiKSAOjIqo183LHQXA/UWJQbVvLxiYVZtxJYlbFCXvNz8vL/bFYjUfW1bbksaiuBpEQ8XkHmP2aIdlS+orxtUkGmwc4QdvI642uT/STeQLjpvC/GEejf4XYABjPiWbTusdHAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.683° / lat : 44.3654°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.683039420424171,44.36539408998647</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>54-A</description>
+			<Style>
+				<IconStyle>
+					<scale>0.53125</scale>
+					<Icon>
+						<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAsCAYAAAAATWqyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABTdJREFUeNq8WG1MllUYvl4Qe0MZJIIGDXMlU0GnC1i0AparNZ1tkpEy1+bAFqwffeePtD/R+tjKzZrax79qfTgtF1uzNUdb5UpWmeX8YEmppYXhR4CIvF3XOed5Xz6f53kBvbd7z3nOOfd9X8855/44TwRJUCwWm83HMnIFuYg8izzFDf9Hbif/Qv6K3ByJRH7DRBGNR8jLyS2x5KnFyUaC7EQCQCziYwv51kQn+fA/wIHTwInzQGeP7c+KAvkZQHEuUDh9qOa95Aau0I9JAyGIx/h4iZxmOk5dAN4/AHx+FOjo8v+87HTgnpuB2mJgxlSv9xL5GYJ5LRQQAkh1q7DOdHT3AVv3AR8RxKX+5PY1LQWoIZiHS4BrJ3m9b7nVuTwqELeXb5LrTUfbGeCpL4Dfz47voBVkAq/cBdw0zet5m/wQwcS8jpQhIk/GQfzwF1C3a/wgRNIhXdJpqd7ZGr4iXI0yPr4hp+IIV2IdBS/0YkJp6mRuzL3AHLMy2prbuCrfxVeEIPTcakB08Uw9vXviQYikU7plQ7Zo09mOb00NebFpbfke+OMcrhhJt2xYWuxs260hKo2U4CTjwooPuWghvENuWcnAOivTvrfzHLS0WzcPolR+/84HgLwMve3j9pQqas53YRl49VvGip/9lUzmij7K+LaSYilDvL+fTrD9V2AT41fvZX89tQuAx8u9tyJtzdK4EgWrIBBvMNXUFA0HYTY6Ysc0R3P9SLb64967NMUlMOBQB3Cm21+4oZS7OjN46TVHc/1ItmTTUkWKy6LAwb/9BTPoequKwx9KzZWMHyVsmq3JM83jAZ5SdoMN2cmEd8n4UcJmnjRH4z7uR/kZybtqkEzCZjTxielp/kI2CCVHQTIDbAqITSaZUX+hwx3JAwmSSdg8KyBtpjk7y19IhVAyCVBzJeNHCZttAtJqmotm+tdr8vmXvx7o++ObG3E2LbUKyJ54qTc/19/A3uPA86yL+3xSgMY0R3P9SLay4luzR0CaVYeZ1xVzg7921yHgwZ0UPTY4jKutPo1pThAlbHWbit8lPVVMdeZrqpn0lPzCkML49c5F/zwfnF/iUYMyO5j0JhmnfYdJr95z3xe1qGbgifLwB1KG2zsthwUhkg0Los/ZtvUIESnbbTaTKm8ElhdeuXpEumXD0mZne1CpyDsAdO+YYyr32u0TXyCpiH7vPq+iPyK/IZCuQcWz66g1y6WJTUu85ZsYki7ptCAUcld7IIZV8RzgBQYbrHvlMJWXTBwQ6Zo33Xt7lrZagy5YAsfLDO4018uGz1jMnRwfiLJ8WyxZa1+S7yaQ/sArJ8FQEvvJ03Cal/xVPC/nLo4NhPLJByuBHB1BKPksJIhhXzbiIeDEEyauiHKnABsrx74aGyo8EKK6kUCMCsSB+YSPbealiu5WPS95EJKpirvqNur8dKy/JdJdUpyLHrr0mh3Asc5wIJRZ360GrjFecpB8C4GMWhT7+qdzr9WKoYhS4QtLgqtzL/TLVS2IXueqvpV5YKBwP1fWm5fCbKCxNBjII2V2rqX11PFTkEjYiLWJvNu01iwEyn2KYo3p8uRuL042kCJhzx3Pyww+dA3MMX+M5NL/9gyedJ1z1WzjJborLOBqnAqjP3QMdwrXxn9Nbawa/BlqP1flgRCtDQsiKSAOjIqo183LHQXA/UWJQbVvLxiYVZtxJYlbFCXvNz8vL/bFYjUfW1bbksaiuBpEQ8XkHmP2aIdlS+orxtUkGmwc4QdvI642uT/STeQLjpvC/GEejf4XYABjPiWbTusdHAAAAABJRU5ErkJggg==</href>
+						<gx:w>34</gx:w>
+						<gx:h>44</gx:h>
+					</Icon>
+					<hotSpot x="17" y="0" xunits="pixels" yunits="pixels"/>
+				</IconStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>lon : 4.6838° / lat : 44.3649°</value>
+				</Data>
+				<Data name="type">
+					<value>Point</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.683817562367351,44.36490153957473</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<description>perimeter</description>
+			<Style>
+				<LineStyle>
+					<color>ff502a00</color>
+					<width>3</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>7f98b700</color>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<Data name="measure">
+					<value>63550.13 m^2</value>
+				</Data>
+				<Data name="type">
+					<value>Polygon</value>
+				</Data>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>4.683797628282151,44.367576579412685 4.682007247298275,44.36774017375947 4.681785132364186,44.367687246226694 4.681287056451379,44.36557972923785 4.683501475036696,44.36455000158253 4.683844743571199,44.36491570132719 4.683844743571199,44.36542094063964 4.684389934773056,44.365844375945045 4.684558203662516,44.36609939800445 4.684618780462722,44.366383289179765 4.684551472906938,44.366715295757984 4.6843764732618975,44.366970314025764 4.684093781527602,44.36715315662869 4.68374378223752,44.36724457771612 4.683797628282151,44.367576579412685</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+</kml>
