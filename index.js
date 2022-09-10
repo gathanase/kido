@@ -5,6 +5,7 @@ avatar = {
   feet: 1
 }
 
+
 function drawAvatar() {
   var canvas = document.getElementById("canvas");
   var ratio = window.devicePixelRatio;
@@ -43,17 +44,7 @@ function drawAvatar() {
 drawAvatar();
 
 
-var map = L.map('map', {
-    //scrollWheelZoom: false,
-    //doubleClickZoom: false,
-    //touchZoom: false,
-    //boxZoom: false,
-    //tap: false,
-    //keyboard: false,
-    zoomControl: false,
-    //dragging: false,
-    maxBoundsViscosity: 0.5
-});
+var map = L.map('my-map', {zoomControl: false});
 var perimeter = L.polygon(db['perimeter'], {color: 'black', fill: false}).addTo(map);
 var bounds = perimeter.getBounds();
 map.fitBounds(bounds);
@@ -103,3 +94,4 @@ targets.forEach(target => {
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 });
+
