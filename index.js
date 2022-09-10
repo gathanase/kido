@@ -1,13 +1,12 @@
-avatar = {
+var avatar = {
   head: 1,
-  hands: 2,
-  body: 3,
+  hands: 3,
+  body: 1,
   feet: 4,
-  theme: 'xmas'
+  theme: 'cute'
 }
 
-
-avatarImage = {
+var avatarDisplay = {
   canvas: document.getElementById("canvas"),
   context: null,
   init: function() {
@@ -47,22 +46,39 @@ avatarImage = {
   }
 }
 
-avatarImage.init();
-avatarImage.paint(avatar);
+avatarDisplay.init();
+avatarDisplay.paint(avatar);
 
 
-var map = L.map('my-map', {zoomControl: false});
-var perimeter = L.polygon(db['perimeter'], {color: 'black', fill: false}).addTo(map);
-var bounds = perimeter.getBounds();
-map.fitBounds(bounds);
-map.setMaxBounds(bounds);
-map.setMinZoom(map.getZoom());
+var mapDisplay = {
+  map: L.map('my-map', {zoomControl: false}),
+  init: function(perimeter, targets) {
+    var polygon = L.polygon(perimeter, {color: 'black', fill: false})
+    var bounds = polygon.getBounds();
+    polygon.addTo(this.map);
+    this.map.fitBounds(bounds);
+    this.map.setMaxBounds(bounds);
+    this.map.setMinZoom(this.map.getZoom());
+    
+    L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        subdomains:['mt0','mt1','mt2','mt3']
+    }).addTo(this.map);
 
-L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-    subdomains:['mt0','mt1','mt2','mt3']
-}).addTo(map);
+    targets.forEach(target => {
+      const opacity = target.active ? 0.5 : 0.1;
+      var marker = L.circle([target.lat, target.lon], {color: target.group.color, fillOpacity: opacity});
+      function onMarkerClick(e) {
+          console.log(target.item);
+          //avatar[item.part] = item.animal;
+          //drawAvatar();
+      }
+      marker.on('click', onMarkerClick);
+      marker.addTo(this.map);
+    });
+  }
+}
 
-targets = db['targets'];
+targets = db.targets;
 groups = {
     'A': {color: 'hotpink', animal: 3},
     'B': {color: 'springgreen', animal: 1},
@@ -82,19 +98,13 @@ items = [
     {animal: 3, part: 'hands', target: '53'},
     {animal: 3, part: 'feet', target: '54'}
 ]
-var popup = L.popup();
 
 targets.forEach(target => {
-    item = items.find(i => i.target == target.code);
-    const opacity = (avatar[item.part] == item.animal) ? 0.5 : 0.1;
-    function onMarkerClick(e) {
-        item = items.find(i => i.target == target.code);
-        console.log(item);
-        avatar[item.part] = item.animal;
-        drawAvatar();
-    }
-    var marker = L.circle([target.lat, target.lon], {color: groups[target.group].color, fillOpacity: opacity});
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
+  item = items.find(i => i.target == target.code);
+  target.item = item;
+  target.group = groups[target.group];
+  target.active = (avatar[item.part] == item.animal);
 });
+
+mapDisplay.init(db.perimeter, targets);
 
