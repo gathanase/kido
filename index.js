@@ -1,3 +1,12 @@
+const animals = {
+  1: {code: 1, name: 'grenouille', color: 'springgreen'},
+  2: {code: 2, name: 'vache', color: 'saddlebrown'},
+  3: {code: 3, name: 'cochon', color: 'hotpink'},
+  4: {code: 4, name: 'renard', color: 'darkorange'},
+  5: {code: 5, name: 'lapin', color: 'gainsboro'},
+  6: {code: 6, name: 'hibou', color: 'gray'}
+}
+
 var avatar = {
   head: 1,
   hands: 3,
@@ -64,9 +73,11 @@ var mapDisplay = {
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(this.map);
 
-    targets.forEach(target => {
-      const opacity = target.active ? 0.5 : 0.1;
-      var marker = L.circle([target.lat, target.lon], {color: target.group.color, fillOpacity: opacity});
+    Object.values(targets).forEach(target => {
+      const active = avatar[target.part] == target.animal;
+      const opacity = active ? 0.6 : 0.1;
+      const color = animals[target.animal].color;
+      var marker = L.circle([target.lat, target.lon], {color: color, fillOpacity: opacity});
       function onMarkerClick(e) {
           console.log(target.item);
           //avatar[item.part] = item.animal;
@@ -78,33 +89,22 @@ var mapDisplay = {
   }
 }
 
-targets = db.targets;
-groups = {
-    'A': {color: 'hotpink', animal: 3},
-    'B': {color: 'springgreen', animal: 1},
-    'C': {color: 'darkorange', animal: 4}
-}
-items = [
-    {animal: 4, part: 'head', target: '43'},
-    {animal: 4, part: 'body', target: '44'},
-    {animal: 4, part: 'hands', target: '45'},
-    {animal: 4, part: 'feet', target: '46'},
-    {animal: 1, part: 'head', target: '47'},
-    {animal: 1, part: 'body', target: '48'},
-    {animal: 1, part: 'hands', target: '49'},
-    {animal: 1, part: 'feet', target: '50'},
-    {animal: 3, part: 'head', target: '51'},
-    {animal: 3, part: 'body', target: '52'},
-    {animal: 3, part: 'hands', target: '53'},
-    {animal: 3, part: 'feet', target: '54'}
-]
 
-targets.forEach(target => {
-  item = items.find(i => i.target == target.code);
-  target.item = item;
-  target.group = groups[target.group];
-  target.active = (avatar[item.part] == item.animal);
-});
+const geo = geos.find(i => i.name == "26_pignedore.kml");
+Object.assign(geo.targets['43'], {animal: 4, part: 'head'});
+Object.assign(geo.targets['44'], {animal: 4, part: 'body'});
+Object.assign(geo.targets['45'], {animal: 4, part: 'hands'});
+Object.assign(geo.targets['46'], {animal: 4, part: 'feet'});
 
-mapDisplay.init(db.perimeter, targets);
+Object.assign(geo.targets['47'], {animal: 1, part: 'body'});
+Object.assign(geo.targets['48'], {animal: 1, part: 'head'});
+Object.assign(geo.targets['49'], {animal: 1, part: 'feet'});
+Object.assign(geo.targets['50'], {animal: 1, part: 'hands'});
+
+Object.assign(geo.targets['51'], {animal: 3, part: 'feet'});
+Object.assign(geo.targets['52'], {animal: 3, part: 'hands'});
+Object.assign(geo.targets['53'], {animal: 3, part: 'head'});
+Object.assign(geo.targets['54'], {animal: 3, part: 'body'});
+
+mapDisplay.init(geo.perimeter, geo.targets);
 

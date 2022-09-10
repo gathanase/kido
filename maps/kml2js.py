@@ -8,9 +8,9 @@ parser.add_argument('file', nargs='+', help='kml files')
 args = parser.parse_args()
 ns = "{http://www.opengis.net/kml/2.2}"
 
-def parseKml(f):
-    res = {'targets': [], 'perimeter': None}
-    tree = ET.parse(f)
+def parseKml(filename):
+    res = {'name': filename, 'targets': {}, 'perimeter': None}
+    tree = ET.parse(filename)
     root = tree.getroot()
     for mark in root.iter(f'{ns}Placemark'):
         desc = mark.findtext(f'{ns}description')
@@ -19,7 +19,7 @@ def parseKml(f):
         if pos:
             code, group = desc.split('-')
             lon, lat = pos.split(',')
-            res['targets'].append({'code': code, 'group': group, 'lat': lat, 'lon': lon})
+            res['targets'][code] = {'code': code, 'group': group, 'lat': lat, 'lon': lon}
         if polygon:
             perimeter = []
             for p in polygon.split(' '):
@@ -29,8 +29,9 @@ def parseKml(f):
     return res
 
 
+geos = []
 for filename in args.file:
-    with open(filename) as f:
-        model = parseKml(f)
-    with open(f'{filename}.js', 'w') as f:
-        json.dump(model, f)
+    geos.append(parseKml(filename))
+with open(f'geos.js', 'w') as f:
+  f.write("const geos = ")
+  json.dump(geos, f)
