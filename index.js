@@ -61,50 +61,59 @@ avatarDisplay.paint(avatar);
 
 var mapDisplay = {
   map: L.map('my-map', {zoomControl: false}),
-  init: function(perimeter, targets) {
+  init: function(perimeter, items) {
+    var map = this.map;
     var polygon = L.polygon(perimeter, {color: 'black', fill: false})
     var bounds = polygon.getBounds();
-    polygon.addTo(this.map);
-    this.map.fitBounds(bounds);
-    this.map.setMaxBounds(bounds);
-    this.map.setMinZoom(this.map.getZoom());
+    polygon.addTo(map);
+    map.fitBounds(bounds);
+    map.setMaxBounds(bounds);
+    map.setMinZoom(map.getZoom());
     
     L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         subdomains:['mt0','mt1','mt2','mt3']
-    }).addTo(this.map);
+    }).addTo(map);
 
-    Object.values(targets).forEach(target => {
-      const active = avatar[target.part] == target.animal;
+    items.forEach(item => {
+      const active = avatar[item.part] == item.animal;
       const opacity = active ? 0.6 : 0.1;
-      const color = animals[target.animal].color;
-      var marker = L.circle([target.lat, target.lon], {color: color, fillOpacity: opacity});
+      const color = animals[item.animal].color;
+      var marker = L.circle([item.cp.lat, item.cp.lon], {color: color, fillOpacity: opacity});
+      item.marker = marker;
+
       function onMarkerClick(e) {
-          console.log(target.item);
-          //avatar[item.part] = item.animal;
-          //drawAvatar();
+          avatar[item.part] = item.animal;
+          avatarDisplay.paint(avatar);
+      //    this.update();
+      //    //new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
       }
       marker.on('click', onMarkerClick);
-      marker.addTo(this.map);
+      marker.addTo(map);
     });
   }
+
+  //update: function(targets) {
+  //  Object.values(targets).forEach(target => {
+  //    const active = avatar[target.part] == target.animal;
+  //    target.marker.remove();
+  //    target.marker.options.fillOpacity = active ? 0.6 : 0.1;
+  //    target.marker.addTo(map);
+  //  });
+  //}
 }
 
 
-const geo = geos.find(i => i.name == "26_pignedore.kml");
-Object.assign(geo.targets['43'], {animal: 4, part: 'head'});
-Object.assign(geo.targets['44'], {animal: 4, part: 'body'});
-Object.assign(geo.targets['45'], {animal: 4, part: 'hands'});
-Object.assign(geo.targets['46'], {animal: 4, part: 'feet'});
+const geo = geos.find(i => i.name == "maps/26_pignedore.kml");
+geo.control_points.sort((a, b) => a.group.localeCompare(b.group));
+var items = [];
+var cp_idx = 0;
+for (let animal of [1, 3, 4]) {
+  for (let part of ['head', 'body', 'hands', 'feet']) {
+    var item = {'animal': animal, 'part': part, 'cp': geo.control_points[cp_idx]}
+    items.push(item);
+    cp_idx++;
+  }
+}
 
-Object.assign(geo.targets['47'], {animal: 1, part: 'body'});
-Object.assign(geo.targets['48'], {animal: 1, part: 'head'});
-Object.assign(geo.targets['49'], {animal: 1, part: 'feet'});
-Object.assign(geo.targets['50'], {animal: 1, part: 'hands'});
-
-Object.assign(geo.targets['51'], {animal: 3, part: 'feet'});
-Object.assign(geo.targets['52'], {animal: 3, part: 'hands'});
-Object.assign(geo.targets['53'], {animal: 3, part: 'head'});
-Object.assign(geo.targets['54'], {animal: 3, part: 'body'});
-
-mapDisplay.init(geo.perimeter, geo.targets);
+mapDisplay.init(geo.perimeter, items);
 

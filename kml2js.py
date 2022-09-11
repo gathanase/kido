@@ -9,7 +9,7 @@ args = parser.parse_args()
 ns = "{http://www.opengis.net/kml/2.2}"
 
 def parseKml(filename):
-    res = {'name': filename, 'targets': {}, 'perimeter': None}
+    res = {'name': filename, 'control_points': [], 'perimeter': None}
     tree = ET.parse(filename)
     root = tree.getroot()
     for mark in root.iter(f'{ns}Placemark'):
@@ -19,7 +19,7 @@ def parseKml(filename):
         if pos:
             code, group = desc.split('-')
             lon, lat = pos.split(',')
-            res['targets'][code] = {'code': code, 'group': group, 'lat': lat, 'lon': lon}
+            res['control_points'].append({'code': code, 'group': group, 'lat': lat, 'lon': lon})
         if polygon:
             perimeter = []
             for p in polygon.split(' '):
