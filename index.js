@@ -7,6 +7,13 @@ const animals = {
   6: {code: 6, name: 'hibou', color: 'gray'}
 }
 
+const parts = {
+  head: 'tête',
+  hands: 'mains',
+  body: 'corps',
+  feet: 'pieds'
+}
+
 var avatar = {
   head: 1,
   hands: 3,
@@ -78,6 +85,9 @@ var mapDisplay = {
       const active = avatar[item.part] == item.animal;
       const opacity = active ? 0.6 : 0.1;
       const color = animals[item.animal].color;
+      if (active) {
+        item.known = true;
+      }
       var marker = L.circle([item.cp.lat, item.cp.lon], {color: color, fillOpacity: opacity});
       item.marker = marker;
 
@@ -87,7 +97,8 @@ var mapDisplay = {
       //    this.update();
       //    //new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
       }
-      marker.on('click', onMarkerClick);
+      const partName = item.known ? parts[item.part] : '?';
+      marker.bindPopup(`${partName} de ${animals[item.animal].name}`);
       marker.addTo(map);
     });
   }
@@ -109,7 +120,7 @@ var items = [];
 var cp_idx = 0;
 for (let animal of [1, 3, 4]) {
   for (let part of ['head', 'body', 'hands', 'feet']) {
-    var item = {'animal': animal, 'part': part, 'cp': geo.control_points[cp_idx]}
+    var item = {'animal': animal, 'part': part, 'cp': geo.control_points[cp_idx], 'known': false}
     items.push(item);
     cp_idx++;
   }
