@@ -8,17 +8,17 @@ const animals = {
 }
 
 const parts = {
-  head: 'tête',
-  hands: 'mains',
-  body: 'corps',
-  feet: 'pieds'
+  head: {name: 'tête'},
+  hands: {name: 'mains'},
+  body: {name: 'corps'},
+  feet: {name: 'pieds'}
 }
 
 var avatar = {
-  head: 1,
-  hands: 3,
-  body: 1,
-  feet: 4,
+  head: 0,
+  hands: 0,
+  body: 0,
+  feet: 0,
   theme: 'cute'
 }
 
@@ -65,6 +65,14 @@ var avatarDisplay = {
 avatarDisplay.init();
 avatarDisplay.paint(avatar);
 
+var cpModal = {
+  dom: document.querySelector('#cpModal'),
+  bs: new bootstrap.Modal(document.querySelector('#cpModal')),
+  show: function() { this.bs.show() },
+  hide: function() { this.bs.hide() },
+  setTitle: function(text) { this.dom.querySelector('.modal-title').textContent = text }
+}
+
 
 var mapDisplay = {
   map: L.map('my-map', {zoomControl: false}),
@@ -92,28 +100,33 @@ var mapDisplay = {
       item.marker = marker;
 
       function onMarkerClick(e) {
-          avatar[item.part] = item.animal;
-          avatarDisplay.paint(avatar);
-      //    this.update();
-      //    //new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
+          //avatar[item.part] = item.animal;
+          //avatarDisplay.paint(avatar);
+          //mapDisplay.update();
+          const partName = item.known ? parts[item.part].name : '?';
+          const animalName = animals[item.animal].name;
+          cpModal.setTitle(`${partName} of ${animalName}`);
+          cpModal.show();
       }
-      const partName = item.known ? parts[item.part] : '?';
-      marker.bindPopup(`${partName} de ${animals[item.animal].name}`);
+      marker.on('click', onMarkerClick);
       marker.addTo(map);
     });
-  }
+  },
 
-  //update: function(targets) {
-  //  Object.values(targets).forEach(target => {
-  //    const active = avatar[target.part] == target.animal;
-  //    target.marker.remove();
-  //    target.marker.options.fillOpacity = active ? 0.6 : 0.1;
-  //    target.marker.addTo(map);
-  //  });
-  //}
+  update: function() {
+    items.forEach(item => {
+      const active = avatar[item.part] == item.animal;
+      if (active) {
+        item.known = true;
+      }
+      item.marker.remove();
+      item.marker.options.fillOpacity = active ? 0.6 : 0.1;
+      item.marker.addTo(this.map);
+    });
+  }
 }
 
-
+// compute all items
 const geo = geos.find(i => i.name == "maps/26_pignedore.kml");
 geo.control_points.sort((a, b) => a.group.localeCompare(b.group));
 var items = [];
@@ -128,3 +141,6 @@ for (let animal of [1, 3, 4]) {
 
 mapDisplay.init(geo.perimeter, items);
 
+function submit_cp() {
+  cpModal.hide();
+}
