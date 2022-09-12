@@ -68,11 +68,11 @@ avatarDisplay.paint(avatar);
 var cpModal = {
   dom: document.querySelector('#cpModal'),
   bs: new bootstrap.Modal(document.querySelector('#cpModal')),
+  item: null,
   show: function() { this.bs.show() },
   hide: function() { this.bs.hide() },
   setTitle: function(text) { this.dom.querySelector('.modal-title').textContent = text }
 }
-
 
 var mapDisplay = {
   map: L.map('my-map', {zoomControl: false}),
@@ -105,6 +105,7 @@ var mapDisplay = {
           //mapDisplay.update();
           const partName = item.known ? parts[item.part].name : '?';
           const animalName = animals[item.animal].name;
+          cpModal.item = item;
           cpModal.setTitle(`${partName} of ${animalName}`);
           cpModal.show();
       }
@@ -141,6 +142,16 @@ for (let animal of [1, 3, 4]) {
 
 mapDisplay.init(geo.perimeter, items);
 
-function submit_cp() {
-  cpModal.hide();
+function submit_cp(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const formProps = Object.fromEntries(formData);
+  item = cpModal.item;
+  if (formProps.code == item.cp.code) {
+    console.log('right');
+    cpModal.hide();
+  } else {
+    console.log('wrong');
+  }
+  return false;
 }
