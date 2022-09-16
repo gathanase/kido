@@ -69,10 +69,20 @@ var cpModal = {
   dom: document.querySelector('#cpModal'),
   bs: new bootstrap.Modal(document.querySelector('#cpModal')),
   item: null,
-  show: function() { this.bs.show() },
-  hide: function() { this.bs.hide() },
+  inputDom: document.querySelector('#cpModal').querySelector('input'),
+  show: function() {
+    this.inputDom.classList.remove('is-invalid');
+    this.inputDom.value = '';
+    this.bs.show();
+  },
+  hide: function() {
+    this.bs.hide()
+  },
   setTitle: function(text) { this.dom.querySelector('.modal-title').textContent = text }
 }
+cpModal.dom.addEventListener('shown.bs.modal', () => {
+  cpModal.inputDom.focus()
+})
 
 var mapDisplay = {
   map: L.map('my-map', {zoomControl: false}),
@@ -106,7 +116,7 @@ var mapDisplay = {
           const partName = item.known ? parts[item.part].name : '?';
           const animalName = animals[item.animal].name;
           cpModal.item = item;
-          cpModal.setTitle(`${partName} of ${animalName}`);
+          cpModal.setTitle(`${partName} de ${animalName}`);
           cpModal.show();
       }
       marker.on('click', onMarkerClick);
@@ -148,10 +158,14 @@ function submit_cp(e) {
   const formProps = Object.fromEntries(formData);
   item = cpModal.item;
   if (formProps.code == item.cp.code) {
-    console.log('right');
+    cpModal.inputDom.classList.remove('is-invalid');
     cpModal.hide();
+    avatar[item.part] = item.animal;
+    mapDisplay.update();
+    avatarDisplay.paint(avatar);
+    new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
   } else {
-    console.log('wrong');
+    cpModal.inputDom.classList.add('is-invalid');
   }
   return false;
 }
