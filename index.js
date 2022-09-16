@@ -1,10 +1,10 @@
 const animals = {
-  1: {code: 1, name: 'grenouille', color: 'springgreen'},
-  2: {code: 2, name: 'vache', color: 'saddlebrown'},
-  3: {code: 3, name: 'cochon', color: 'hotpink'},
-  4: {code: 4, name: 'renard', color: 'darkorange'},
-  5: {code: 5, name: 'lapin', color: 'gainsboro'},
-  6: {code: 6, name: 'hibou', color: 'gray'}
+  1: {code: 1, name: 'grenouille', color: 'springgreen', audio: 'gregreu.mp3'},
+  2: {code: 2, name: 'vache', color: 'saddlebrown', audio: 'lactosine.mp3'},
+  3: {code: 3, name: 'cochon', color: 'hotpink', audio: 'cochonou.mp3'},
+  4: {code: 4, name: 'renard', color: 'darkorange', audio: 'fino.mp3'},
+  5: {code: 5, name: 'lapin', color: 'gainsboro', audio: 'lapin.mp3'},
+  6: {code: 6, name: 'hibou', color: 'gray', audio: 'zibou.mp3'}
 }
 
 const parts = {
@@ -59,6 +59,11 @@ var avatarDisplay = {
     var feet = new Image();
     feet.onload = function (e) { context.drawImage(feet, 0, 231+77+113, 500, 86); }
     feet.src = `${assets}/p${avatar.feet}.jpg`;
+
+    const allEqual = arr => arr.every( v => v === arr[0] )
+    if (avatar.head != 0 && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
+        new Audio(`assets/mp3/${animals[avatar.head].audio}`).play();
+    }
   }
 }
 
