@@ -1,3 +1,5 @@
+const trophies = new Set(); // set of animalId
+
 const animals = {
   1: {code: 1, name: 'grenouille', color: 'springgreen', audio: 'gregreu.mp3'},
   2: {code: 2, name: 'vache', color: 'saddlebrown', audio: 'lactosine.mp3'},
@@ -54,7 +56,6 @@ var avatarDisplay = {
 
   paint: function(avatar) {
     var assets = `assets/images/${settings.theme}`;
-    var head = new Image();
     var context = this.context
 
     for (const [partId, rectangles] of Object.entries(this.mosaic)) {
@@ -121,11 +122,12 @@ var mapDisplay = {
       item.marker = marker;
 
       function onMarkerClick(e) {
-          const partName = item.known ? parts[item.part].name : '?';
-          const animalName = animals[item.animal].name;
-          cpModal.item = item;
-          cpModal.setTitle(`${partName} de ${animalName}`);
-          cpModal.show();
+          set_part(item.part, item.animal);
+          //const partName = item.known ? parts[item.part].name : '?';
+          //const animalName = animals[item.animal].name;
+          //cpModal.item = item;
+          //cpModal.setTitle(`${partName} de ${animalName}`);
+          //cpModal.show();
       }
       marker.on('click', onMarkerClick);
       marker.addTo(map);
@@ -165,9 +167,15 @@ function set_part(part, animal) {
   mapDisplay.update();
   avatarDisplay.paint(avatar);
 
+  new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
   const allEqual = arr => arr.every( v => v === arr[0] )
-  if (animal != 0 && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
-      new Audio(`assets/mp3/${animals[animal].audio}`).play();
+  if (animal != 0 && !trophies.has(animal) && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
+    trophies.add(animal);
+    var img = document.createElement("img");
+    img.setAttribute("src", `assets/images/${settings.theme}/${animal}.jpg`);
+    document.getElementById("trophies").appendChild(img);
+
+    new Audio(`assets/mp3/${animals[animal].audio}`).play();
   }
 }
 
@@ -180,7 +188,6 @@ function submit_cp(e) {
     cpModal.inputDom.classList.remove('is-invalid');
     cpModal.hide();
     set_part(item.part, item.animal);
-    new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
   } else {
     cpModal.inputDom.classList.add('is-invalid');
   }

@@ -12,7 +12,16 @@ body {
 
 #canvas {
   width: 100%;
-  max-height: calc(100vh - 40px);
+  max-height: calc(100vh - 140px);
+}
+
+#trophies {
+  display: flex;
+  justify-content: center;
+}
+
+#trophies img {
+  max-height: 100px;
 }
 
 #my-map {
