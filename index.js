@@ -18,51 +18,57 @@ var avatar = {
   head: 0,
   hands: 0,
   body: 0,
-  feet: 0,
+  feet: 0
+}
+
+var settings = {
   theme: 'cute'
 }
 
 var avatarDisplay = {
   canvas: document.getElementById("canvas"),
   context: null,
+  mosaic: {
+    head: [
+      {x0: 0, y0: 0, x1: 930, y1: 428},
+      {x0: 304, y0: 428, x1: 628, y1: 571}
+    ],
+    hands: [
+      {x0: 0, y0: 428, x1: 304, y1: 571},
+      {x0: 628, y0: 428, x1: 930, y1: 571}
+    ],
+    body: [
+      {x0: 0, y0: 571, x1: 930, y1: 781}
+    ],
+    feet: [
+      {x0: 0, y0: 781, x1: 930, y1: 940}
+    ]
+  },
   init: function() {
     var ratio = window.devicePixelRatio;
-    this.canvas.width = 500 * ratio;
-    this.canvas.height = 507 * ratio;
+    this.canvas.width = 931 * ratio;
+    this.canvas.height = 941 * ratio;
     this.context = this.canvas.getContext("2d");
     this.context.scale(ratio, ratio);
   },
 
   paint: function(avatar) {
-    var assets = `assets/images/${avatar.theme}`;
+    var assets = `assets/images/${settings.theme}`;
     var head = new Image();
     var context = this.context
-    head.onload = function (e) { context.drawImage(head, 0, 0, 500, 231); }
-    head.src = `${assets}/th${avatar.head}.jpg`;
-  
-    var leftHand = new Image();
-    leftHand.onload = function (e) { context.drawImage(leftHand, 0, 231, 164, 77); }
-    leftHand.src = `${assets}/bd${avatar.hands}.jpg`;
-  
-    var torso = new Image();
-    torso.onload = function (e) { context.drawImage(torso, 164, 231, 174, 77); }
-    torso.src = `${assets}/tb${avatar.head}.jpg`;
-  
-    var rightHand = new Image();
-    rightHand.onload = function (e) { context.drawImage(rightHand, 164+174, 231, 162, 77); }
-    rightHand.src = `${assets}/bg${avatar.hands}.jpg`;
-  
-    var body = new Image();
-    body.onload = function (e) { context.drawImage(body, 0, 231+77, 500, 113); }
-    body.src = `${assets}/c${avatar.body}.jpg`;
-  
-    var feet = new Image();
-    feet.onload = function (e) { context.drawImage(feet, 0, 231+77+113, 500, 86); }
-    feet.src = `${assets}/p${avatar.feet}.jpg`;
 
-    const allEqual = arr => arr.every( v => v === arr[0] )
-    if (avatar.head != 0 && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
-        new Audio(`assets/mp3/${animals[avatar.head].audio}`).play();
+    for (const [partId, rectangles] of Object.entries(this.mosaic)) {
+      if (avatar[partId] === 0) {
+        continue;
+      }
+      for (let rect of rectangles) {
+        const img = new Image();
+        img.onload = function (e) {
+          [x, y, w, h] = [rect.x0, rect.y0, rect.x1-rect.x0, rect.y1-rect.y0];
+          context.drawImage(img, x, y, w, h, x, y, w, h);
+        }
+        img.src = `${assets}/${avatar[partId]}.jpg`;
+      }
     }
   }
 }
@@ -115,9 +121,6 @@ var mapDisplay = {
       item.marker = marker;
 
       function onMarkerClick(e) {
-          //avatar[item.part] = item.animal;
-          //avatarDisplay.paint(avatar);
-          //mapDisplay.update();
           const partName = item.known ? parts[item.part].name : '?';
           const animalName = animals[item.animal].name;
           cpModal.item = item;
@@ -157,6 +160,17 @@ for (let animal of [1, 3, 4]) {
 
 mapDisplay.init(geo.perimeter, items);
 
+function set_part(part, animal) {
+  avatar[part] = animal;
+  mapDisplay.update();
+  avatarDisplay.paint(avatar);
+
+  const allEqual = arr => arr.every( v => v === arr[0] )
+  if (animal != 0 && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
+      new Audio(`assets/mp3/${animals[animal].audio}`).play();
+  }
+}
+
 function submit_cp(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -165,9 +179,7 @@ function submit_cp(e) {
   if (formProps.code == item.cp.code) {
     cpModal.inputDom.classList.remove('is-invalid');
     cpModal.hide();
-    avatar[item.part] = item.animal;
-    mapDisplay.update();
-    avatarDisplay.paint(avatar);
+    set_part(item.part, item.animal);
     new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
   } else {
     cpModal.inputDom.classList.add('is-invalid');
