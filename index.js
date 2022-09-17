@@ -122,12 +122,12 @@ var mapDisplay = {
       item.marker = marker;
 
       function onMarkerClick(e) {
-          set_part(item.part, item.animal);
-          //const partName = item.known ? parts[item.part].name : '?';
-          //const animalName = animals[item.animal].name;
-          //cpModal.item = item;
-          //cpModal.setTitle(`${partName} de ${animalName}`);
-          //cpModal.show();
+          //set_part(item.part, item.animal);
+          const partName = item.known ? parts[item.part].name : '?';
+          const animalName = animals[item.animal].name;
+          cpModal.item = item;
+          cpModal.setTitle(`${partName} de ${animalName}`);
+          cpModal.show();
       }
       marker.on('click', onMarkerClick);
       marker.addTo(map);
