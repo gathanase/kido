@@ -107,7 +107,7 @@ var mapDisplay = {
     map.setMaxBounds(bounds);
     map.setMinZoom(map.getZoom());
     
-    L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
 
@@ -152,7 +152,7 @@ const geo = geos.find(i => i.name == "maps/26_pignedore.kml");
 geo.control_points.sort((a, b) => a.group.localeCompare(b.group));
 var items = [];
 var cp_idx = 0;
-for (let animal of [1, 3, 4]) {
+for (let animal = 1; animal <= geo.control_points.length / 4; animal++) {
   for (let part of ['head', 'body', 'hands', 'feet']) {
     var item = {'animal': animal, 'part': part, 'cp': geo.control_points[cp_idx], 'known': false}
     items.push(item);
