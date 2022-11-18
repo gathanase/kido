@@ -72,6 +72,36 @@ var avatarDisplay = {
       }
       img.src = `${assets}/${animalId}.jpg`;
     }
+  },
+
+  animate: function(partId, animalId) {
+    var assets = `assets/images/${settings.theme}`;
+    var context = this.context;
+
+    var rectangles = this.mosaic[partId];
+    var tiles = [];
+    for (let rect of rectangles) {
+      s = 20;
+      for (let tx=rect.x0; tx<rect.x1; tx=tx+s) {
+        tile = {x0: tx, x1: Math.min(tx+s, rect.x1), y0: rect.y0, y1: rect.y1};
+        tiles.push(tile);
+      }
+    }
+    tiles.reverse();
+
+    const img = new Image();
+    img.onload = function (e) {
+      timer = setInterval(function () {
+        if (tiles.length) {
+          var rect = tiles.pop(0);
+          [x, y, w, h] = [rect.x0, rect.y0, rect.x1-rect.x0, rect.y1-rect.y0];
+          context.drawImage(img, x, y, w, h, x, y, w, h);
+        } else {
+          clearInterval(timer);
+        }
+      }, 50);
+    }
+    img.src = `${assets}/${avatar[partId]}.jpg`;
   }
 }
 
@@ -166,7 +196,7 @@ mapDisplay.init(geo.perimeter, items);
 function set_part(partId, animalId) {
   avatar[partId] = animalId;
   mapDisplay.update();
-  avatarDisplay.paint(avatar);
+  avatarDisplay.animate(partId, animalId);
 
   new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
   const allEqual = arr => arr.every( v => v === arr[0] )
