@@ -171,11 +171,13 @@ function set_part(part, animal) {
   const allEqual = arr => arr.every( v => v === arr[0] )
   if (animal != 0 && !trophies.has(animal) && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
     trophies.add(animal);
+    var audioFile = `assets/mp3/${animals[animal].audio}`;
     var img = document.createElement("img");
     img.setAttribute("src", `assets/images/${settings.theme}/${animal}.jpg`);
+    img.setAttribute("onclick", `new Audio('${audioFile}').play()`);
     document.getElementById("trophies").appendChild(img);
 
-    new Audio(`assets/mp3/${animals[animal].audio}`).play();
+    new Audio(audioFile).play();
   }
 }
 
