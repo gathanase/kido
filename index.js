@@ -106,7 +106,7 @@ var mapDisplay = {
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
     map.setMinZoom(map.getZoom());
-    
+
     L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
@@ -181,11 +181,40 @@ function set_part(part, animal) {
   }
 }
 
+// coordinates are in degrees, returns the distance in meters
+function distance(lat1, lon1, lat2, lon2) {
+  var R = 6371000;
+  var lat1 = toRad(lat1);
+  var lat2 = toRad(lat2);
+  var dLat = toRad(lat2-lat1);
+  var dLon = toRad(lon2-lon1);
+
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c;
+  return d;
+}
+
+// Converts numeric degrees to radians
+function toRad(degrees)
+{
+  return degrees * Math.PI / 180;
+}
+
 function submit_cp(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
   item = cpModal.item;
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(pos => console.log(distance(item.cp.lat, item.cp.lon, pos.coords.latitude, pos.coords.longitude)), error => console.log(error));
+    console.log(item.cp);
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+
   if (formProps.code == item.cp.code) {
     cpModal.inputDom.classList.remove('is-invalid');
     cpModal.hide();
