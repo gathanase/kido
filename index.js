@@ -59,17 +59,18 @@ var avatarDisplay = {
     var context = this.context
 
     for (const [partId, rectangles] of Object.entries(this.mosaic)) {
-      if (avatar[partId] === 0) {
+      var animalId = avatar[partId];
+      if (animalId === 0) {
         continue;
       }
-      for (let rect of rectangles) {
-        const img = new Image();
-        img.onload = function (e) {
+      const img = new Image();
+      img.onload = function (e) {
+        for (let rect of rectangles) {
           [x, y, w, h] = [rect.x0, rect.y0, rect.x1-rect.x0, rect.y1-rect.y0];
           context.drawImage(img, x, y, w, h, x, y, w, h);
         }
-        img.src = `${assets}/${avatar[partId]}.jpg`;
       }
+      img.src = `${assets}/${animalId}.jpg`;
     }
   }
 }
@@ -112,9 +113,9 @@ var mapDisplay = {
     }).addTo(map);
 
     items.forEach(item => {
-      const active = avatar[item.part] == item.animal;
+      const active = avatar[item.partId] == item.animalId;
       const opacity = active ? 0.6 : 0.1;
-      const color = animals[item.animal].color;
+      const color = animals[item.animalId].color;
       if (active) {
         item.known = true;
       }
@@ -122,9 +123,9 @@ var mapDisplay = {
       item.marker = marker;
 
       function onMarkerClick(e) {
-          //set_part(item.part, item.animal);
-          const partName = item.known ? parts[item.part].name : '?';
-          const animalName = animals[item.animal].name;
+          //set_part(item.partId, item.animalId);
+          const partName = item.known ? parts[item.partId].name : '?';
+          const animalName = animals[item.animalId].name;
           cpModal.item = item;
           cpModal.setTitle(`${partName} de ${animalName}`);
           cpModal.show();
@@ -136,7 +137,7 @@ var mapDisplay = {
 
   update: function() {
     items.forEach(item => {
-      const active = avatar[item.part] == item.animal;
+      const active = avatar[item.partId] == item.animalId;
       if (active) {
         item.known = true;
       }
@@ -152,9 +153,9 @@ const geo = geos.find(i => i.name == "maps/26_pignedore.kml");
 geo.control_points.sort((a, b) => a.group.localeCompare(b.group));
 var items = [];
 var cp_idx = 0;
-for (let animal = 1; animal <= geo.control_points.length / 4; animal++) {
-  for (let part of ['head', 'body', 'hands', 'feet']) {
-    var item = {'animal': animal, 'part': part, 'cp': geo.control_points[cp_idx], 'known': false}
+for (let animalId = 1; animalId <= geo.control_points.length / 4; animalId++) {
+  for (let partId of ['head', 'body', 'hands', 'feet']) {
+    var item = {'animalId': animalId, 'partId': partId, 'cp': geo.control_points[cp_idx], 'known': false}
     items.push(item);
     cp_idx++;
   }
@@ -162,18 +163,18 @@ for (let animal = 1; animal <= geo.control_points.length / 4; animal++) {
 
 mapDisplay.init(geo.perimeter, items);
 
-function set_part(part, animal) {
-  avatar[part] = animal;
+function set_part(partId, animalId) {
+  avatar[partId] = animalId;
   mapDisplay.update();
   avatarDisplay.paint(avatar);
 
   new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
   const allEqual = arr => arr.every( v => v === arr[0] )
-  if (animal != 0 && !trophies.has(animal) && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
-    trophies.add(animal);
-    var audioFile = `assets/mp3/${animals[animal].audio}`;
+  if (animalId != 0 && !trophies.has(animalId) && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
+    trophies.add(animalId);
+    var audioFile = `assets/mp3/${animals[animalId].audio}`;
     var img = document.createElement("img");
-    img.setAttribute("src", `assets/images/${settings.theme}/${animal}.jpg`);
+    img.setAttribute("src", `assets/images/${settings.theme}/${animalId}.jpg`);
     img.setAttribute("onclick", `new Audio('${audioFile}').play()`);
     document.getElementById("trophies").appendChild(img);
 
@@ -218,7 +219,7 @@ function submit_cp(e) {
   if (formProps.code == item.cp.code) {
     cpModal.inputDom.classList.remove('is-invalid');
     cpModal.hide();
-    set_part(item.part, item.animal);
+    set_part(item.partId, item.animalId);
   } else {
     cpModal.inputDom.classList.add('is-invalid');
   }
