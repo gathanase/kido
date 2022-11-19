@@ -1,4 +1,4 @@
-const trophies = new Set(); // set of animalId
+const completed = new Set(); // set of animalId
 
 const animals = {
   1: {code: 1, name: 'grenouille', color: 'springgreen', audio: 'gregreu.mp3'},
@@ -128,7 +128,8 @@ cpModal.dom.addEventListener('shown.bs.modal', () => {
 })
 
 var mapDisplay = {
-  map: L.map('my-map', {zoomControl: false}),
+  map: L.map('map', {zoomControl: false}),
+  sidebar: L.control.sidebar('sidebar'),
   init: function(perimeter, items) {
     var map = this.map;
     var polygon = L.polygon(perimeter, {color: 'black', fill: false})
@@ -141,6 +142,7 @@ var mapDisplay = {
     L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
+    this.sidebar.addTo(map);
 
     items.forEach(item => {
       const active = avatar[item.partId] == item.animalId;
@@ -196,17 +198,17 @@ mapDisplay.init(geo.perimeter, items);
 function set_part(partId, animalId) {
   avatar[partId] = animalId;
   mapDisplay.update();
+  mapDisplay.sidebar.open("avatar");
   avatarDisplay.animate(partId, animalId);
 
-  new bootstrap.Tab(document.querySelector('#nav-avatar-tab')).show();
   const allEqual = arr => arr.every( v => v === arr[0] )
-  if (animalId != 0 && !trophies.has(animalId) && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
-    trophies.add(animalId);
+  if (animalId != 0 && !completed.has(animalId) && allEqual([avatar.head, avatar.hands, avatar.body, avatar.feet])) {
+    completed.add(animalId);
     var audioFile = `assets/mp3/${animals[animalId].audio}`;
     var img = document.createElement("img");
     img.setAttribute("src", `assets/images/${settings.theme}/${animalId}.jpg`);
     img.setAttribute("onclick", `new Audio('${audioFile}').play()`);
-    document.getElementById("trophies").appendChild(img);
+    document.getElementById("completed").appendChild(img);
 
     new Audio(audioFile).play();
   }

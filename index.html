@@ -1,49 +1,57 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Kido</title>
-    <link rel="stylesheet" href="index.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-          integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-          crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-            integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-            crossorigin=""></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
+    <title>kido</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="leaflet-sidebar.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <nav>
-      <div class="nav nav-pills" id="nav-tab" role="tablist">
-        <button class="nav-link active" id="nav-map-tab" data-bs-toggle="tab" data-bs-target="#nav-map" 
-                type="button" role="tab" aria-controls="nav-map" aria-selected="true">
-          <i class="bi bi-map"></i>
-        </button>
-        <button class="nav-link" id="nav-avatar-tab" data-bs-toggle="tab" data-bs-target="#nav-avatar"
-                type="button" role="tab" aria-controls="nav-avatar" aria-selected="false">
-          <i class="bi bi-person"></i>
-        </button>
-        <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings"
-                disabled type="button" role="tab" aria-controls="nav-settings" aria-selected="false">
-          <i class="bi bi-gear"></i>
-        </button>
+    <div id="sidebar" class="sidebar collapsed">
+      <div class="sidebar-tabs">
+        <ul role="tablist">
+          <li><a href="#avatar" role="tab"><i class="fa fa-user"></i></a></li>
+          <li class="disabled"><a href="#trophies" role="tab"><i class="fa fa-trophy"></i></a></li>
+        </ul>
+
+        <ul role="tablist">
+          <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+        </ul>
       </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-map" role="tabpanel" aria-labelledby="nav-map-tab">
-        <div id="my-map"></div>
-      </div>
-      <div class="tab-pane fade" id="nav-avatar" role="tabpanel" aria-labelledby="nav-avatar-tab">
-        <div id="trophies">
+
+      <div class="sidebar-content">
+        <div class="sidebar-pane" id="avatar">
+          <h1 class="sidebar-header">
+            Avatar
+            <span class="sidebar-close"><i class="fa fa-close"></i></span>
+          </h1>
+          <canvas id="canvas"></canvas>
+          <span id="completed"></span>
         </div>
-        <canvas id="canvas"></canvas>
-      </div>
-      <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
+
+        <div class="sidebar-pane" id="trophies">
+          <h1 class="sidebar-header">
+            Trophies
+            <span class="sidebar-close"><i class="fa fa-close"></i></span>
+          </h1>
+        </div>
+
+        <div class="sidebar-pane" id="settings">
+          <h1 class="sidebar-header">
+            Settings
+            <span class="sidebar-close"><i class="fa fa-close"></i></span>
+          </h1>
+        </div>
       </div>
     </div>
+
+    <div id="map" class="sidebar-map"></div>
 
     <div class="modal fade" id="cpModal" tabindex="-1" aria-labelledby="control point" aria-hidden="true">
       <div class="modal-dialog">
@@ -69,10 +77,10 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <script src="leaflet-sidebar.js"></script>
     <script src="geos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-            crossorigin="anonymous"></script>
-    <script src="index.js" charset="utf-8"></script>
+    <script src="index.js"></script>
   </body>
 </html>

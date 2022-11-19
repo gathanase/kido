@@ -1,31 +1,27 @@
-html {
-  height: 100%;
-}
-
 body {
-  height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-#nav-tab {
-  padding: 4px 8px;
+html, body, #map {
+    height: 100%;
+    font: 10pt "Helvetica Neue", "Arial", "Helvetica", "sans-serif";
 }
 
 #canvas {
-  width: 100%;
-  max-height: calc(100vh - 140px);
+  max-height: 200px;
+  background-color: white;
 }
 
-#trophies {
+#completed {
   display: flex;
   justify-content: center;
 }
 
-#trophies img {
-  max-height: 100px;
+#completed img {
+  max-height: 50px;
 }
 
-#my-map {
-  width: 100%;
-  height: calc(100vh - 40px);
+#sidebar {
+  z-index: 1000;
 }
-
