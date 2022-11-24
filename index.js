@@ -25,7 +25,7 @@ var mapDisplay = {
     var bounds = polygon.getBounds();
     map.fitBounds(bounds);
 
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
     this.sidebar.addTo(map);
