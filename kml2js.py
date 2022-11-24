@@ -29,9 +29,9 @@ def parseKml(filename):
     return res
 
 
-geos = []
+circuits = []
 for filename in args.file:
-    geos.append(parseKml(filename))
-with open(f'geos.js', 'w') as f:
-  f.write("const geos = ")
-  json.dump(geos, f)
+    circuits.append(parseKml(filename))
+with open(f'circuits.js', 'w') as f:
+  f.write("const circuits = ")
+  json.dump(circuits, f)
