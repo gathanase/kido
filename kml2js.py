@@ -13,9 +13,12 @@ def parseKml(filename):
     if filename == 'maps/26_pignedore.kml':
         name = "Lac de Pignedore"
         desc = "Circuit très simple autour du lac de pignedore"
-    if filename == 'maps/26_suze_la_rousse.kml':
+    elif filename == 'maps/26_suze_la_rousse.kml':
         name = "Parc du chateau de Suze la rousse"
         desc = "Circuit forestier dans le parc du chateau"
+    elif filename == 'maps/26_centre_sp3c.kml':
+        name = "Vieille ville de Saint Paul Trois Chateaux"
+        desc = "Circuit historique de la ville"
     res = {'name': name, 'description': desc, 'control_points': [], 'perimeter': None}
     tree = ET.parse(filename)
     root = tree.getroot()
