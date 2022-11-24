@@ -8,20 +8,6 @@ html, body, #map {
     font: 10pt "Helvetica Neue", "Arial", "Helvetica", "sans-serif";
 }
 
-#canvas {
-  max-height: 200px;
-  background-color: white;
-}
-
-#completed {
-  display: flex;
-  justify-content: center;
-}
-
-#completed img {
-  max-height: 50px;
-}
-
 #sidebar {
   z-index: 1000;
 }

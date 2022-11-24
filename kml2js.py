@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 import argparse
 import json
 
+
 parser = argparse.ArgumentParser(description='Convert kml files to js')
 parser.add_argument('file', nargs='+', help='kml files')
 
@@ -9,7 +10,13 @@ args = parser.parse_args()
 ns = "{http://www.opengis.net/kml/2.2}"
 
 def parseKml(filename):
-    res = {'name': filename, 'control_points': [], 'perimeter': None}
+    if filename == 'maps/26_pignedore.kml':
+        name = "Lac de Pignedore"
+        desc = "Circuit très simple autour du lac de pignedore"
+    if filename == 'maps/26_suze_la_rousse.kml':
+        name = "Parc du chateau de Suze la rousse"
+        desc = "Circuit forestier dans le parc du chateau"
+    res = {'name': name, 'description': desc, 'control_points': [], 'perimeter': None}
     tree = ET.parse(filename)
     root = tree.getroot()
     for mark in root.iter(f'{ns}Placemark'):

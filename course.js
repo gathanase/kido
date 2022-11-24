@@ -1,3 +1,5 @@
+const urlParams = new URLSearchParams(window.location.search);
+
 const completed = new Set(); // set of animalId
 
 const animals = {
@@ -181,7 +183,7 @@ var mapDisplay = {
 }
 
 // compute all items
-const circuit = circuits.find(i => i.name == "maps/26_pignedore.kml");
+const circuit = circuits.find(i => i.name == urlParams.get("circuit"));
 circuit.control_points.sort((a, b) => a.group.localeCompare(b.group));
 var items = [];
 var cp_idx = 0;
