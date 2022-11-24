@@ -114,10 +114,12 @@ var cpModal = {
   dom: document.querySelector('#cpModal'),
   bs: new bootstrap.Modal(document.querySelector('#cpModal')),
   item: null,
-  inputDom: document.querySelector('#cpModal').querySelector('input'),
+  codeDom: document.querySelector('#cpModal').querySelector('input[name=code]'),
+  distanceDom: document.querySelector('#cpModal').querySelector('input[name=distance]'),
   show: function() {
-    this.inputDom.classList.remove('is-invalid');
-    this.inputDom.value = '';
+    this.codeDom.classList.remove('is-invalid');
+    this.codeDom.value = '';
+    this.distanceDom.classList.remove('is-invalid');
     this.bs.show();
   },
   hide: function() {
@@ -126,7 +128,7 @@ var cpModal = {
   setTitle: function(text) { this.dom.querySelector('.modal-title').textContent = text }
 }
 cpModal.dom.addEventListener('shown.bs.modal', () => {
-  cpModal.inputDom.focus()
+  cpModal.codeDom.focus()
 })
 
 var mapDisplay = {
@@ -160,6 +162,7 @@ var mapDisplay = {
           //set_part(item.partId, item.animalId);
           const partName = item.known ? parts[item.partId].name : '?';
           const animalName = animals[item.animalId].name;
+
           cpModal.item = item;
           cpModal.setTitle(`${partName} de ${animalName}`);
           cpModal.show();
@@ -217,7 +220,7 @@ function set_part(partId, animalId) {
 }
 
 // coordinates are in degrees, returns the distance in meters
-function distance(lat1, lon1, lat2, lon2) {
+function compute_distance(lat1, lon1, lat2, lon2) {
   var R = 6371000;
   var lat1 = toRad(lat1);
   var lat2 = toRad(lat2);
@@ -237,25 +240,42 @@ function toRad(degrees)
   return degrees * Math.PI / 180;
 }
 
+function validate_cp(item, pos, code) {
+  var distance = 0;
+  if (pos == null) {
+    console.log("Cannot get position");
+  } else {
+    distance = compute_distance(item.cp.lat, item.cp.lon, pos.coords.latitude, pos.coords.longitude);
+    console.log(`Distance is ${distance}m`);
+  }
+  var valid_code = code == item.cp.code;
+  var valid_distance = distance < 10;
+
+  cpModal.codeDom.classList.remove('is-invalid');
+  cpModal.distanceDom.classList.remove('is-invalid');
+  if (valid_code && valid_distance) {
+    cpModal.hide();
+    set_part(item.partId, item.animalId);
+  }
+  if (!valid_code) {
+    cpModal.codeDom.classList.add('is-invalid');
+  }
+  if (!valid_distance) {
+    cpModal.distanceDom.classList.add('is-invalid');
+  }
+}
+
 function submit_cp(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  item = cpModal.item;
+  var item = cpModal.item;
+  var code = formProps.code;
 
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(pos => console.log(distance(item.cp.lat, item.cp.lon, pos.coords.latitude, pos.coords.longitude)), error => console.log(error));
-    console.log(item.cp);
+    navigator.geolocation.getCurrentPosition(pos => validate_cp(item, pos, code), error => validate_cp(item, null, code));
   } else {
-    console.log("Geolocation is not supported by this browser.");
-  }
-
-  if (formProps.code == item.cp.code) {
-    cpModal.inputDom.classList.remove('is-invalid');
-    cpModal.hide();
-    set_part(item.partId, item.animalId);
-  } else {
-    cpModal.inputDom.classList.add('is-invalid');
+    validate_cp(item, null, code);
   }
   return false;
 }
