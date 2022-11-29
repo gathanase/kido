@@ -270,7 +270,7 @@ function submit_cp(e) {
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
   var item = cpModal.item;
-  var code = formProps.code;
+  var code = parseInt(formProps.code);
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(pos => validate_cp(item, pos, code), error => validate_cp(item, null, code));
