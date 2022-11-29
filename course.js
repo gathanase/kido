@@ -290,3 +290,6 @@ function submit_cp(e) {
   }
   return false;
 }
+
+var audio = document.getElementById("mp3_go");
+audio.play();
