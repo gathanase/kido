@@ -143,9 +143,20 @@ var mapDisplay = {
     map.setMaxBounds(bounds);
     map.setMinZoom(map.getZoom());
 
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-        subdomains:['mt0','mt1','mt2','mt3']
+    L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+        '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+        '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+        '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+        {
+            ignApiKey: 'decouverte',
+            ignLayer: 'ORTHOIMAGERY.ORTHOPHOTOS',
+            style: 'normal',
+            maxZoom: 18,
+            format: 'image/jpeg',
+            attribution : "Geoportail",
+            service: 'WMTS'
     }).addTo(map);
+
     this.sidebar.addTo(map);
 
     items.forEach(item => {

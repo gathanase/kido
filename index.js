@@ -25,8 +25,17 @@ var mapDisplay = {
     var bounds = polygon.getBounds();
     map.fitBounds(bounds);
 
-    L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-        subdomains:['mt0','mt1','mt2','mt3']
+    L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+         '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+         '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+         '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+         {
+            ignApiKey: 'decouverte',
+            ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+            style: 'normal',
+            format: 'image/png',
+            attribution : "Geoportail",
+            service: 'WMTS'
     }).addTo(map);
     this.sidebar.addTo(map);
 
