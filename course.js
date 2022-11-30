@@ -227,6 +227,8 @@ function set_part(partId, animalId) {
     document.getElementById("completed").appendChild(img);
 
     new Audio(audioFile).play();
+  } else {
+    document.getElementById("mp3_success").play();
   }
 }
 
@@ -267,12 +269,14 @@ function validate_cp(item, pos, code) {
   if (valid_code && valid_distance) {
     cpModal.hide();
     set_part(item.partId, item.animalId);
-  }
-  if (!valid_code) {
-    cpModal.codeDom.classList.add('is-invalid');
-  }
-  if (!valid_distance) {
-    cpModal.distanceDom.classList.add('is-invalid');
+  } else {
+    if (!valid_code) {
+      cpModal.codeDom.classList.add('is-invalid');
+    }
+    if (!valid_distance) {
+      cpModal.distanceDom.classList.add('is-invalid');
+    }
+    document.getElementById("mp3_failure").play();
   }
 }
 
@@ -291,5 +295,4 @@ function submit_cp(e) {
   return false;
 }
 
-var audio = document.getElementById("mp3_go");
-audio.play();
+document.getElementById("mp3_go").play();
