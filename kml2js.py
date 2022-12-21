@@ -19,6 +19,9 @@ def parseKml(filename):
     elif filename == 'maps/26_centre_sp3c.kml':
         name = "Vieille ville de Saint Paul Trois Chateaux"
         desc = "Circuit historique de la ville"
+    elif filename == 'maps/34_magalas.kml':
+        name = "Vieux village de Magalas"
+        desc = "Circuit historique du village"
     res = {'name': name, 'description': desc, 'control_points': [], 'perimeter': None}
     tree = ET.parse(filename)
     root = tree.getroot()
@@ -28,12 +31,12 @@ def parseKml(filename):
         polygon = mark.findtext(f'{ns}Polygon/{ns}outerBoundaryIs/{ns}LinearRing/{ns}coordinates')
         if pos:
             code, group = desc.split('-')
-            lon, lat = pos.split(',')
+            lon, lat = pos.split(',')[:2]
             res['control_points'].append({'code': code, 'group': group, 'lat': lat, 'lon': lon})
         if polygon:
             perimeter = []
             for p in polygon.split(' '):
-                lon, lat = p.split(',')
+                lon, lat = p.split(',')[:2]
                 perimeter.append({'lat': lat, 'lon': lon})
             res['perimeter'] = perimeter
     return res
