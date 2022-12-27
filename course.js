@@ -134,28 +134,32 @@ cpModal.dom.addEventListener('shown.bs.modal', () => {
 var mapDisplay = {
   map: L.map('map', {zoomControl: false}),
   sidebar: L.control.sidebar('sidebar'),
-  init: function(perimeter, items) {
+  init: function(circuit, items) {
     var map = this.map;
-    var polygon = L.polygon(perimeter, {color: 'black', fill: false})
+    var polygon = L.polygon(circuit.perimeter, {color: 'black', fill: false})
     var bounds = polygon.getBounds();
     polygon.addTo(map);
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
     map.setMinZoom(map.getZoom());
+    ignParams = {
+        ignApiKey: 'decouverte',
+        ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+        style: 'normal',
+        maxZoom: 18,
+        format: 'image/png',
+        attribution : "Geoportail",
+        service: 'WMTS'
+    }
+    if (circuit.view == 'satellite') {
+        ignParams.ignLayer = 'ORTHOIMAGERY.ORTHOPHOTOS'
+        ignParams.format = 'image/jpeg'
+    }
 
     L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
         '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
         '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
-        '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
-        {
-            ignApiKey: 'decouverte',
-            ignLayer: 'ORTHOIMAGERY.ORTHOPHOTOS',
-            style: 'normal',
-            maxZoom: 18,
-            format: 'image/jpeg',
-            attribution : "Geoportail",
-            service: 'WMTS'
-    }).addTo(map);
+        '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}', ignParams).addTo(map);
 
     this.sidebar.addTo(map);
 
@@ -209,7 +213,7 @@ for (let animalId = 1; animalId <= circuit.control_points.length / 4; animalId++
   }
 }
 
-mapDisplay.init(circuit.perimeter, items);
+mapDisplay.init(circuit, items);
 
 function set_part(partId, animalId) {
   avatar[partId] = animalId;
