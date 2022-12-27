@@ -136,7 +136,7 @@ var mapDisplay = {
   sidebar: L.control.sidebar('sidebar'),
   init: function(circuit, items) {
     var map = this.map;
-    var polygon = L.polygon(circuit.perimeter, {color: 'black', fill: false})
+    var polygon = L.polygon(circuit.perimeter, {color: 'red', fill: false})
     var bounds = polygon.getBounds();
     polygon.addTo(map);
     map.fitBounds(bounds);
