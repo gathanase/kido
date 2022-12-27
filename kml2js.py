@@ -35,8 +35,9 @@ def parseKml(filename):
         polygon = mark.findtext(f'{ns}Polygon/{ns}outerBoundaryIs/{ns}LinearRing/{ns}coordinates')
         if pos:
             code, group = desc.split('-')
-            lon, lat = pos.split(',')[:2]
-            res['control_points'].append({'code': code, 'group': group, 'lat': lat, 'lon': lon})
+            if len(group) == 1 and group in 'ABCDEFGH':
+                lon, lat = pos.split(',')[:2]
+                res['control_points'].append({'code': code, 'group': group, 'lat': lat, 'lon': lon})
         if polygon:
             perimeter = []
             for p in polygon.split(' '):
